@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoa Yêu Thương - Cửa hàng hoa tươi</title>
+    <style>
+        /* --- GIAO DIỆN TỔNG THỂ (THEME TỐI) --- */
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #121212;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #d81b60, #880e4f);
+            padding: 10px 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            margin-right: 10px;
+            animation: spin 6s linear infinite;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffe3ed;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- BANNER --- */
+        .banner {
+            background: url("https://www.google.com/imgres?q=%E1%BA%A3nh%20n%E1%BB%81n%20trang%20web%20b%C3%A1n%20hoa&imgurl=https%3A%2F%2Finkythuatso.com%2Fuploads%2Fthumbnails%2F800%2F2022%2F03%2F5e684ad0e5914e35590b8573-hinh-anh-cay-hoa-ban-trang-18-10-30-49.jpg&imgrefurl=https%3A%2F%2Finkythuatso.com%2Fhinh-anh-dep%2Fhinh-anh-hoa-ban-trang-3649.html%3Fsrsltid%3DAfmBOoq6VHO5hmCcbW0JbolDH9Ay_JOVYTTdq9kEWiOj1amy_NLmUFQz&docid=M74EI0PIOfRMoM&tbnid=I8dHXIaBvLNfqM&vet=12ahUKEwjImNqFzNuQAxWegFYBHRn9NTIQM3oECG8QAA..i&w=800&h=517&hcb=2&ved=2ahUKEwjImNqFzNuQAxWegFYBHRn9NTIQM3oECG8QAA") center/cover no-repeat;
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .banner h2 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 10px #000;
+            animation: slideIn 2s ease-out;
+        }
+
+        .banner p {
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+
+        @keyframes slideIn {
+            from {transform: translateY(-30px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f06292;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #ec407a;
+        }
+
+        /* --- HOA RƠI --- */
+        .falling-flowers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .flower {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* --- GIỚI THIỆU --- */
+        .about {
+            padding: 60px 40px;
+            text-align: center;
+            background: #1e1e1e;
+        }
+
+        /* --- SẢN PHẨM --- */
+        .products {
+            background: #181818;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .product {
+            background: #2c2c2c;
+            border-radius: 10px;
+            padding: 15px;
+            width: 250px;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #e91e63;
+        }
+
+        /* --- LIÊN HỆ --- */
+        .contact {
+            text-align: center;
+            padding: 60px 40px;
+            background: #1c1c1c;
+        }
+
+        .contact input, .contact textarea {
+            width: 90%;
+            max-width: 400px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: #333;
+            color: #fff;
+        }
+
+        .contact button {
+            background: #f06292;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact button:hover {
+            background: #e91e63;
+        }
+
+        footer {
+            background: #880e4f;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            .product-grid {
+                flex-direction: column;
+            }
+        }
+
+        marquee {
+            color: #f48fb1;
+            font-weight: bold;
+            background: #1a1a1a;
+            padding: 10px;
+            border-top: 1px solid #880e4f;
+            border-bottom: 1px solid #880e4f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\ADMIN\Pictures\Ảnh\IMG_1754989820470_1754989834479.jpg" alt="Logo">
+            <h1>Tiệm hoa Đức Khiêm</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#products">Sản phẩm</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <marquee>💐 Chào mừng bạn đến với Tiệm hoa Đức Khiêm - Nơi trao gửi cảm xúc qua từng cánh hoa 💐</marquee>
+
+    <section id="home" class="banner">
+        <!-- Hiệu ứng hoa rơi -->
+        <div class="falling-flowers">
+            <span class="flower" style="left:5%; animation-duration: 8s; animation-delay: 0s;">🌸</span>
+            <span class="flower" style="left:15%; animation-duration: 10s; animation-delay: 2s;">🌷</span>
+            <span class="flower" style="left:25%; animation-duration: 9s; animation-delay: 1s;">🌼</span>
+            <span class="flower" style="left:35%; animation-duration: 11s; animation-delay: 3s;">🌺</span>
+            <span class="flower" style="left:45%; animation-duration: 8s; animation-delay: 1s;">🌻</span>
+            <span class="flower" style="left:55%; animation-duration: 10s; animation-delay: 2s;">🌸</span>
+            <span class="flower" style="left:65%; animation-duration: 9s; animation-delay: 3s;">🌷</span>
+            <span class="flower" style="left:75%; animation-duration: 11s; animation-delay: 1s;">🌼</span>
+            <span class="flower" style="left:85%; animation-duration: 10s; animation-delay: 0s;">🌺</span>
+            <span class="flower" style="left:95%; animation-duration: 9s; animation-delay: 2s;">🌻</span>
+        </div>
+
+        <h2>Trao Yêu Thương Qua Từng Cánh Hoa</h2>
+        <p>Hoa tươi mỗi ngày - Giao hàng tận nơi toàn quốc</p>
+        <a href="#products" class="btn">Xem sản phẩm</a>
+    </section>
+
+    <section id="about" class="about">
+        <h2>🌸 Giới thiệu 🌸</h2>
+        <p>Tiệm hoa Đức Khiêm là cửa hàng hoa tươi chuyên cung cấp hoa sinh nhật, hoa cưới, hoa chúc mừng và các loại hoa nghệ thuật.  
+           Mỗi bó hoa được thiết kế với sự tận tâm và tình cảm của chúng tôi gửi đến bạn, giúp cho bạn gửi gắm tình cảm dành cho những người thân yêu.</p>
+        </section>
+
+    <section id="products" class="products">
+        <h2>🌺 Sản phẩm nổi bật 🌺</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="c:\Users\ADMIN\Pictures\Ảnh\download (1).jpg" alt="Hoa hồng đỏ">
+                <h3>Hoa hồng đỏ</h3>
+                <p>Giá: 300.000đ</p>
+            </div>
+            <div class="product">
+                <img src="c:\Users\ADMIN\Pictures\Ảnh\download (2).jpg" alt="Bó hoa cưới">
+                <h3>Bó hoa cưới</h3>
+                <p>Giá: 350.000đ-400.000đ</p>
+            </div>
+            <div class="product">
+                <img src="c:\Users\ADMIN\Pictures\Ảnh\download-3.jpg" alt="Hoa tulip">
+                <h3>Hoa tulip</h3>
+                <p>Giá: 300.000đ-500.000đ</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>📩 Liên hệ với chúng tôi 📩</h2>
+        <form>
+            <input type="text" placeholder="Họ tên" required><br>
+            <input type="email" placeholder="Email" required><br>
+            <textarea placeholder="Nội dung..." rows="5" required></textarea><br>
+            <button type="submit">Gửi tin nhắn</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Tiệm hoa Đức Khiêm | Thiết kế bởi Sinh viên Nguyễn Đức Khiêm</p>
+    </footer>
+</body>
+</html>
